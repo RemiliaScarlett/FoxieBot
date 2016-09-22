@@ -164,7 +164,21 @@ exports.commands = {
 
         this.send("JIBUN WOOOOOOOOOO");
         //idk what else we want to do for jibun
-
+    },
+ 	topic: function(arg, user, room) {
+ 		if (room.id !== 'scholastic') return false;
+                var topics = require('./topics.js').topics;
+                var argG = arg.split(', ');
+                if(!arg){
+                        var rng = Math.floor((topics.length * Math.random()));
+                        return this.say(room, topics[rng]);
+                } else if (argG[0] == 'add') {
+                        if(!argG[1] || (!user.hasRank(room.id, '+%@#&~'))) return false;
+                        var index = topics.map(topic => toId(topic)).includes(toId(argG[1]))
+                        if (index == true) return this.say(room, "Topic " + topics[index] + " already exists")
+                        topics.push(argG[1]);
+                }
+     },
     },
     settings: function(target, room, user) {
         if (!room && !target) return user.sendTo("Please specify the room.");
