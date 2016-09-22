@@ -166,7 +166,7 @@ exports.commands = {
         //idk what else we want to do for jibun
     },
  	topic: function(arg, user, room) {
- 		if (room.id !== 'scholastic') return false;
+ 		if (room.id !== 'animeandmanga') return false;
                 var topics = require('./topics.js').topics;
                 var argG = arg.split(', ');
                 if(!arg){
