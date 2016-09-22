@@ -15,3 +15,5 @@ config/database-showdown/blacklist.json
 config/database-showdown/ranks.json
 config/database-showdown/moderation.json
 config/config.js
+config/config.js
+config/database-showdown/topic.json

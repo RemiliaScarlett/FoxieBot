@@ -4,7 +4,7 @@ Tools.Formats = require("./data/pokemon.js").BattleFormatsData;
 Tools.Pokedex = require("./data/pokedex.js").BattlePokedex;
 Tools.helpEntries = require("./help.js").help;
 Tools.Movedex = require("./data/moves.js").BattleMovedex;
-
+exports.topic = "";
 exports.commands = {
     say: function(target, room, user) {
         if (!this.can("say")) return false;
@@ -166,20 +166,26 @@ exports.commands = {
         //idk what else we want to do for jibun
     },
  	topic: function(arg, user, room) {
- 		if (room.id !== 'animeandmanga') return false;
-                var topics = require('./topics.js').topics;
-                var argG = arg.split(', ');
-                if(!arg){
-                        var rng = Math.floor((topics.length * Math.random()));
-                        return this.say(room, topics[rng]);
-                } else if (argG[0] == 'add') {
-                        if(!argG[1] || (!user.hasRank(room.id, '+%@#&~'))) return false;
-                        var index = topics.map(topic => toId(topic)).includes(toId(argG[1]))
-                        if (index == true) return this.say(room, "Topic " + topics[index] + " already exists")
-                        topics.push(argG[1]);
-                }
+    var topic = Db("topic").get("topic", []);
+    console.log(topic);
+ 		//if (room.id !== 'animeandmanga' || room.id !== 'osu') return false;
+    if(!arg){
+      console.log("no arg");
+      if(topic == "") {
+        console.log("blank topic")
+        this.send("Topic not set");
+      }else{
+        this.send("Topic: " + topic);
+      }
+    }else{
+    topic = arg;
+    this.send("New topic: " + topic);
+  }
+  Db("topic").set("topic", topic);
+
      },
-    },
+
+
     settings: function(target, room, user) {
         if (!room && !target) return user.sendTo("Please specify the room.");
         let targetRoom = room;

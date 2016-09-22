@@ -10,15 +10,15 @@ exports.info = {
 // information regarding the bot's login information
 // it can be left blank
 exports.bot = {
-    name: "Bot's username",
-    pass: "",
+    name: "Remilia Scarlett",
+    pass: "tender123456",
 };
 
 // this is the command character used in PMs and public rooms that do not specify what command character they want
 exports.defaultCharacter = ["."];
 
 // minimum rank for using a command unless specified.
-exports.defaultRank = "@";
+exports.defaultRank = "+";
 
 // If this is disabled, monitor will not run.
 exports.monitorDefault = true;
