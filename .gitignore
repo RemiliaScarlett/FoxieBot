@@ -6,12 +6,3 @@ config.js
 .hg
 .bzr
 .svn
-config/database-showdown/autojoin.json
-config/database-showdown/mail.json
-config/database-showdown/settings.json
-config/database-showdown/seen.json
-config/config.js
-config/database-showdown/blacklist.json
-config/database-showdown/ranks.json
-config/database-showdown/moderation.json
-config/config.js
