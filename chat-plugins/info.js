@@ -17,7 +17,7 @@ exports.commands = {
     credits: 'about',
     about: function() {
         this.can("set");
-        this.send("Bot made in node.js for **Anime and Manga** room by **Nui** , **czn** & **Misaki** .");
+        this.send("Bot made in node.js for **Anime and Manga** room by **Nui** & **Misaki** .");
     },
     seen: function(target, room, user) {
         if(!target) return this.parse("/help seen");
