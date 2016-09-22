@@ -159,6 +159,13 @@ exports.commands = {
         this.send("/modnote \"" + target + "\" was removed from the blacklist by " + user.name + ".");
         this.send(target + " was successfully removed from the blacklist.");
     },
+    jb: "jibun",
+    jibun: function(room) {
+
+        this.send("JIBUN WOOOOOOOOOO");
+        //idk what else we want to do for jibun
+
+    },
     settings: function(target, room, user) {
         if (!room && !target) return user.sendTo("Please specify the room.");
         let targetRoom = room;
